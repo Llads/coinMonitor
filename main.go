@@ -42,10 +42,11 @@ func main() {
 		json.Unmarshal(body, &jsonResp)
 
 		var face = jsonResp[coinName]["usd"]
-
+		
 		if coinValue < face {
 			coinString := fmt.Sprint(" ", face)
-			notify.Notify("coinMonitor", " ", coinName+" has reached"+"\n$"+coinString, "alert.png")
+			path, _ := os.Getwd()
+			notify.Notify("coinMonitor", " ", coinName+" has reached"+"\n$"+coinString, path + "/alert.png")
 			os.Exit(1)
 		}
 
