@@ -34,24 +34,21 @@ func main() {
 		req.Header.Set("accept", "application/json")
 		resp, err := http.DefaultClient.Do(req)
 		if err != nil {
-			panic(err)
+			continue
 		}
 
 		body, err := ioutil.ReadAll(resp.Body)
 		var jsonResp map[string]map[string]float64
 		json.Unmarshal(body, &jsonResp)
 
-		var face = (jsonResp[coinName]["usd"])
+		var face = jsonResp[coinName]["usd"]
 
-		if (coinValue < face) {
+		if coinValue < face {
 			coinString := fmt.Sprint(" ", face)
-			notify.Notify("coinMonitor", " ", coinName+" has reached"+"\n$"+coinString, "C:\\Users\\rcoll\\Documents\\Projects\\Go Projects\\coinMonitor\\alert.png")
+			notify.Notify("coinMonitor", " ", coinName+" has reached"+"\n$"+coinString, "alert.png")
 			os.Exit(1)
 		}
 
-		if (coinValue > face) {
-
-		}
 		time.Sleep(1000*time.Millisecond)
 	}
 }
