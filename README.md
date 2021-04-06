@@ -6,3 +6,5 @@ Thank you to: https://github.com/martinlindhe for his goLang notification librar
 alert.png can be changed to whatever you feel like works best for you.
 
 Program is currently setup to alert you to dips, this can be changed in around one line.
+
+Currently will only run on windows due to hooking the cmd for changing console title, plan to either remove this which will allow it to run on mac devices, however you can just remove the setTitle() function and remove the call to it at the top.
