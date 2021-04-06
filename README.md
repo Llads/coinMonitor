@@ -5,4 +5,4 @@ Thank you to: https://github.com/martinlindhe for his goLang notification librar
 
 alert.png can be changed to whatever you feel like works best for you.
 
-Program is currently setup to alert you to dips, this can be changed in around one line.
+Program is currently setup to alert you to dips, this can be changed in the conditional at the bottom.
